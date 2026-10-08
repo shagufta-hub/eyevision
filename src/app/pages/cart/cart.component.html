@@ -1,6 +1,5 @@
 <div class="cart-page container">
   <h1>Shopping Cart</h1>
-
   <div class="cart-layout" *ngIf="cart.cartItems().length; else empty">
     <section class="cart-items">
       <article class="cart-item" *ngFor="let item of cart.cartItems()">
