@@ -1,0 +1,56 @@
+<header class="header">
+  <div class="header__inner container">
+    <a routerLink="/" class="logo" (click)="closeMenu()">
+      <span class="logo__icon"></span>
+      <!-- <span class="logo__text">Eye<strong>Vision</strong></span> -->
+    </a>
+
+    <button
+      type="button"
+      class="menu-toggle"
+      [attr.aria-expanded]="menuOpen"
+      aria-label="Toggle navigation"
+      (click)="toggleMenu()"
+    >
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="nav" [class.nav--open]="menuOpen">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()">Home</a>
+      <a routerLink="/shop" routerLinkActive="active" (click)="closeMenu()">Shop All</a>
+      <a routerLink="/sale" routerLinkActive="active" class="nav__sale" (click)="closeMenu()">
+        Sale
+        <span class="nav__sale-badge" *ngIf="saleCount">{{ saleCount }}</span>
+      </a>
+
+      <div class="nav__dropdown">
+        <span class="nav__label">Categories</span>
+        <a
+          *ngFor="let cat of categories"
+          [routerLink]="['/shop']"
+          [queryParams]="{ category: cat.key }"
+          (click)="closeMenu()"
+        >{{ cat.label }}</a>
+      </div>
+
+      <div class="nav__dropdown">
+        <span class="nav__label">For</span>
+        <a
+          *ngFor="let aud of audiences"
+          [routerLink]="['/shop']"
+          [queryParams]="{ audience: aud.key }"
+          (click)="closeMenu()"
+        >{{ aud.label }}</a>
+      </div>
+    </nav>
+
+    <a routerLink="/cart" class="cart-btn" (click)="closeMenu()">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <path d="M16 10a4 4 0 01-8 0"/>
+      </svg>
+      <span class="cart-btn__badge" *ngIf="cart.itemCount() > 0">{{ cart.itemCount() }}</span>
+    </a>
+  </div>
+</header>

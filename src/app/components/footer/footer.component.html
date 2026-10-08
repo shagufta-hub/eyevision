@@ -1,0 +1,31 @@
+<footer class="footer">
+  <div class="container footer__grid">
+    <div class="footer__brand">
+      <!-- <span class="footer__logo">◉ Eye<strong>Vision</strong></span> -->
+      <span class="logo__icon_footer"></span>
+      <p>Premium spectacles, goggles, and contact lenses for women, men, and kids.</p>
+    </div>
+    <div>
+      <h4>Shop</h4>
+      <a routerLink="/shop" [queryParams]="{ category: 'spectacles' }">Spectacles</a>
+      <a routerLink="/shop" [queryParams]="{ category: 'goggles' }">Goggles</a>
+      <a routerLink="/shop" [queryParams]="{ category: 'contact-lenses' }">Contact Lenses</a>
+      <a routerLink="/sale">Sale</a>
+    </div>
+    <div>
+      <h4>For</h4>
+      <a routerLink="/shop" [queryParams]="{ audience: 'women' }">Women</a>
+      <a routerLink="/shop" [queryParams]="{ audience: 'men' }">Men</a>
+      <a routerLink="/shop" [queryParams]="{ audience: 'kids' }">Kids</a>
+    </div>
+    <div>
+      <h4>Support</h4>
+      <a href="#">Shipping & Returns</a>
+      <a href="#">Size Guide</a>
+      <a href="#">Contact Us</a>
+    </div>
+  </div>
+  <div class="footer__bottom container">
+    <p>&copy; {{ year }} EyeVision. All rights reserved.</p>
+  </div>
+</footer>

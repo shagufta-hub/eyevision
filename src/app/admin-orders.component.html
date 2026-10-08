@@ -1,0 +1,133 @@
+<div class="admin-container">
+  <h1>📋 Admin Dashboard - Order Management</h1>
+
+  <div *ngIf="loading" class="loading">⏳ Loading orders...</div>
+  <div *ngIf="error" class="error-message">❌ {{ error }}</div>
+
+  <div class="orders-table-container" *ngIf="!loading && orders.length > 0">
+    <h2>All Orders ({{ orders.length }})</h2>
+    
+    <table class="orders-table">
+      <thead>
+        <tr>
+          <th>Order ID</th>
+          <th>Customer</th>
+          <th>Email</th>
+          <th>Product</th>
+          <th>Qty</th>
+          <th>Price</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of orders" class="order-row">
+          <td><strong>#{{ order.orderId }}</strong></td>
+          <td>{{ order.customerName }}</td>
+          <td>{{ order.email }}</td>
+          <td>{{ order.productName }}</td>
+          <td>{{ order.quantity }}</td>
+          <td>₹{{ order.totalPrice }}</td>
+          <td>
+            <span class="status-badge" [style.backgroundColor]="getStatusColor(order.status)">
+              {{ getStatusEmoji(order.status) }} {{ order.status }}
+            </span>
+          </td>
+          <td>
+            <button class="btn-view" (click)="viewTracking(order)">👁️ View</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="!loading && orders.length === 0" class="no-orders">
+    📭 No orders found
+  </div>
+
+  <!-- Modal -->
+  <div class="modal" *ngIf="showTrackingDetails">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Order #{{ selectedOrder?.orderId }} Details</h2>
+        <button class="close-btn" (click)="closeModal()">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <!-- Order Details -->
+        <div class="order-details">
+          <h3>📦 Order Information</h3>
+          <div class="details-grid">
+            <div class="detail-item">
+              <label>Customer:</label>
+              <p>{{ selectedOrder?.customerName }}</p>
+            </div>
+            <div class="detail-item">
+              <label>Email:</label>
+              <p>{{ selectedOrder?.email }}</p>
+            </div>
+            <div class="detail-item">
+              <label>Phone:</label>
+              <p>{{ selectedOrder?.phoneNumber }}</p>
+            </div>
+            <div class="detail-item">
+              <label>Product:</label>
+              <p>{{ selectedOrder?.productName }}</p>
+            </div>
+            <div class="detail-item">
+              <label>Quantity:</label>
+              <p>{{ selectedOrder?.quantity }}</p>
+            </div>
+            <div class="detail-item">
+              <label>Total Price:</label>
+              <p>₹{{ selectedOrder?.totalPrice }}</p>
+            </div>
+            <div class="detail-item">
+              <label>Address:</label>
+              <p>{{ selectedOrder?.shippingAddress }}, {{ selectedOrder?.city }} - {{ selectedOrder?.zipCode }}</p>
+            </div>
+            <div class="detail-item">
+              <label>Payment:</label>
+              <p>{{ selectedOrder?.paymentMethod }}</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Update Status -->
+        <div class="update-status-section">
+          <h3>🔄 Update Order Status</h3>
+          <div class="status-buttons">
+            <button *ngFor="let status of statuses"
+              class="status-btn"
+              [style.backgroundColor]="getStatusColor(status)"
+              [disabled]="selectedOrder?.status === status"
+              (click)="updateStatus(selectedOrder?.orderId, status)">
+              {{ getStatusEmoji(status) }} {{ status }}
+            </button>
+          </div>
+        </div>
+
+        <!-- Tracking History -->
+        <div class="tracking-history">
+          <h3>📍 Tracking History</h3>
+          <div class="timeline">
+            <div *ngFor="let tracking of selectedOrder?.trackingHistory" class="timeline-item">
+              <div class="timeline-dot" [style.backgroundColor]="getStatusColor(tracking.status)"></div>
+              <div class="timeline-content">
+                <h4>{{ getStatusEmoji(tracking.status) }} {{ tracking.status }}</h4>
+                <p>{{ tracking.description }}</p>
+                <p class="timestamp">📅 {{ tracking.createdAt | date:'short' }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn-close" (click)="closeModal()">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" *ngIf="showTrackingDetails" (click)="closeModal()"></div>
+</div>

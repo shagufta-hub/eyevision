@@ -1,0 +1,93 @@
+<div class="sale-page">
+  <section class="sale-hero">
+    <div class="container sale-hero__inner">
+      <p class="sale-hero__eyebrow">Limited time offers</p>
+      <h1>Sale</h1>
+      <p class="sale-hero__desc">
+        Save on premium eyewear — up to <strong>{{ maxDiscount }}% off</strong> on selected spectacles and goggles.
+      </p>
+    </div>
+  </section>
+
+  <div class="container sale-content">
+    <div class="sale-layout">
+      <aside class="filters">
+        <h3>Filter sale items</h3>
+
+        <label class="filter-group">
+          <span>Search</span>
+          <input
+            type="search"
+            [(ngModel)]="filters.search"
+            (ngModelChange)="applyFilters()"
+            placeholder="Search sale products..."
+          />
+        </label>
+
+        <div class="filter-group">
+          <span>Category</span>
+          <div class="filter-chips">
+            <button
+              *ngFor="let cat of categories"
+              type="button"
+              class="chip"
+              [class.chip--active]="filters.category === cat"
+              (click)="filters.category = cat; applyFilters()"
+            >
+              {{ getCategoryLabel(cat) }}
+            </button>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <span>For</span>
+          <div class="filter-chips">
+            <button
+              *ngFor="let aud of audiences"
+              type="button"
+              class="chip"
+              [class.chip--active]="filters.audience === aud"
+              (click)="filters.audience = aud; applyFilters()">
+              {{ getAudienceLabel(aud) }}
+            </button>
+          </div>
+        </div>
+
+        <label class="filter-group">
+          <span>Sort by</span>
+          <select [(ngModel)]="filters.sort" (ngModelChange)="applyFilters()">
+            <option value="discount">Biggest discount</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="rating">Top Rated</option>
+          </select>
+        </label>
+
+        <a routerLink="/shop" class="link-shop-all">Browse full catalog →</a>
+      </aside>
+
+      <section class="sale-results">
+        <p class="results-count">
+          {{ products.length }} sale product{{ products.length !== 1 ? 's' : '' }}
+        </p>
+
+        <div class="products-grid" *ngIf="products.length; else empty">
+          <app-product-card *ngFor="let product of products" [product]="product" />
+        </div>
+
+        <ng-template #empty>
+          <div class="empty-state">
+            <p>No sale products match your filters.</p>
+            <button
+              type="button"
+              class="btn btn--outline"
+              (click)="filters = { category: 'all', audience: 'all', search: '', sort: 'discount', onSale: true }; applyFilters()"
+            >
+              Clear filters
+            </button>
+          </div>
+        </ng-template>
+      </section>
+    </div>
+  </div>
+</div>

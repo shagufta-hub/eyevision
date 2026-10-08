@@ -1,0 +1,253 @@
+/* Main Container */
+.max-w-5xl {
+    max-width: 1100px;
+}
+
+.mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.p-6 {
+    padding: 24px;
+}
+
+.bg-white {
+    background: #fff;
+}
+
+.shadow {
+    box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+}
+
+.rounded-lg {
+    border-radius: 10px;
+}
+
+/* Headings */
+.text-2xl {
+    font-size: 28px;
+}
+
+.text-lg {
+    font-size: 20px;
+}
+
+.text-sm {
+    font-size: 14px;
+}
+
+.text-xs {
+    font-size: 12px;
+}
+
+.font-bold {
+    font-weight: bold;
+}
+
+.font-semibold {
+    font-weight: 600;
+}
+
+.font-medium {
+    font-weight: 500;
+}
+
+.mb-6 {
+    margin-bottom: 24px;
+}
+
+.mb-4 {
+    margin-bottom: 16px;
+}
+
+.mb-1 {
+    margin-bottom: 5px;
+}
+
+.pt-4 {
+    padding-top: 16px;
+}
+
+/* Form */
+.space-y-6 > * + * {
+    margin-top: 24px;
+}
+
+.space-y-3 > * + * {
+    margin-top: 12px;
+}
+
+label {
+    display: block;
+}
+
+/* Grid */
+.grid {
+    display: grid;
+}
+
+.grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-cols-5 {
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.gap-4 {
+    gap: 16px;
+}
+
+.gap-2 {
+    gap: 8px;
+}
+
+/* Flex */
+.flex {
+    display: flex;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.items-end {
+    align-items: end;
+}
+
+.space-x-2 > * + * {
+    margin-left: 8px;
+}
+
+/* Border */
+.border {
+    border: 1px solid #d1d5db;
+}
+
+.border-t {
+    border-top: 1px solid #d1d5db;
+}
+
+.rounded {
+    border-radius: 6px;
+}
+
+.bg-gray-50 {
+    background: #f9fafb;
+}
+
+.text-gray-500 {
+    color: #6b7280;
+}
+
+/* Inputs */
+input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #cbd5e1;
+    border-radius: 5px;
+    outline: none;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 4px rgba(37,99,235,0.3);
+}
+
+/* Small Input */
+.p-1 {
+    padding: 6px;
+}
+
+.p-2 {
+    padding: 10px;
+}
+
+.p-3 {
+    padding: 12px;
+}
+
+/* Width */
+.w-full {
+    width: 100%;
+}
+
+/* Buttons */
+button {
+    cursor: pointer;
+    border: none;
+    transition: 0.3s;
+}
+
+/* Add Variant Button */
+.bg-blue-600 {
+    background: #2563eb;
+}
+
+.bg-blue-600:hover {
+    background: #1d4ed8;
+}
+
+.text-white {
+    color: #fff;
+}
+
+.px-3 {
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.py-1 {
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+/* Submit Button */
+.bg-green-600 {
+    background: #16a34a;
+}
+
+.bg-green-600:hover {
+    background: #15803d;
+}
+
+.py-3 {
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+button:disabled {
+    background: #bdbdbd;
+    cursor: not-allowed;
+}
+
+/* Remove Button */
+.text-red-500 {
+    color: #ef4444;
+    background: transparent;
+    font-size: 18px;
+}
+
+.text-red-500:hover {
+    color: #dc2626;
+}
+
+.px-2 {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.pt-4 {
+    padding-top: 16px;
+}

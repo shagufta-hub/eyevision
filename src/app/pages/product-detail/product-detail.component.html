@@ -1,0 +1,116 @@
+<div class="product-detail container" *ngIf="product">
+  <nav class="breadcrumb">
+    <a routerLink="/">Home</a> /
+    <a routerLink="/shop">Shop</a> /
+    <span>{{ product.title }}</span>
+  </nav>
+
+  <div class="product-detail__grid">
+    <!-- <div class="product-detail__image">
+      <img [src]="product.image" [alt]="product.title + ' - ' + selectedColor" />
+    </div> -->
+    <div class="product-detail__gallery">
+
+  <!-- Thumbnails -->
+  <div
+    class="product-detail__thumbnails"
+    *ngIf="product.images?.length"
+  >
+    <button
+      *ngFor="let image of product.images"
+      type="button"
+      class="product-detail__thumbnail"
+      [class.product-detail__thumbnail--active]="
+        displayImage === getImageUrl(image.filePath)
+      "
+      (click)="selectProductImage(image.filePath)"
+      [attr.aria-label]="'View ' + image.fileName"
+    >
+      <img
+        [src]="getImageUrl(image.filePath)"
+        [alt]="product.title"
+      />
+    </button>
+  </div>
+
+  <!-- Main Image -->
+  <div class="product-detail__image">
+    <img
+      [src]="displayImage || product.image"
+      [alt]="product.title + ' - ' + selectedColor"
+    />
+  </div>
+
+</div>
+
+    <div class="product-detail__info">
+      <div class="product-detail__tags">
+        <span>{{ categoryLabels[product.category] }} </span>
+        <span>{{ audienceLabels[product.audience] }}</span>
+      </div>
+
+      <h1>{{ product.title }}</h1>
+      <p class="brand">{{ product.brand }}</p>
+
+      <div class="rating">
+        <!-- <span class="stars">★ {{ product.rating }}</span> -->
+        <span class="stars" *ngIf="product.rating > 0">★ {{ product.rating }}</span>
+        <!-- <span>({{ product.reviewCount }} reviews)</span> -->
+      </div>
+
+      <div class="price-block">
+        <span class="price">{{ product.price | inr }}</span>
+        <span class="original" *ngIf="product.originalPrice">{{ product.originalPrice | inr }}</span>
+      </div>
+
+      <p class="description">{{ product.description }}</p>
+
+      <!-- <div class="option-group">
+        <span class="option-label">
+          Color / Variant:
+          <strong>{{ selectedColor }}</strong>
+        </span>
+        <div class="color-options">
+          <button
+            *ngFor="let variant of product.variants"
+            type="button"
+            class="color-swatch"
+            [class.color-swatch--active]="selectedColor === variant.name"
+            [attr.aria-label]="variant.sku"
+            [attr.aria-pressed]="selectedColor === variant.name"
+            (click)="selectVariant(variant)"
+          >
+            <span
+              class="color-swatch__dot"
+              [style.background-color]="variant.hex"
+              [class.color-swatch__dot--light]="variant.hex === '#f5f5f5' || variant.hex === '#E8E8E8' || variant.hex === '#dbeafe' || variant.hex === '#fce7f3'"
+            ></span>
+            <span class="color-swatch__name">{{ variant.name }}</span>
+          </button>
+        </div>
+      </div> -->
+
+      <div class="option-group">
+        <span>Quantity</span>
+        <div class="quantity-control">
+          <button type="button" (click)="quantity = quantity > 1 ? quantity - 1 : 1">−</button>
+          <span>{{ quantity }}</span>
+          <button type="button" (click)="quantity = quantity + 1">+</button>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button type="button" class="btn btn--primary btn--lg" [class.btn--success]="added" (click)="addToCart()">
+          {{ added ? 'Added to Cart ✓' : 'Add to Cart' }}
+        </button>
+        <a routerLink="/cart" class="btn btn--outline btn--lg">View Cart</a>
+      </div>
+
+      <ul class="features">
+        <li>Free shipping on orders over {{ freeShippingMin | inr }}</li>
+        <li>30-day hassle-free returns</li>
+        <li>Authentic EyeVision products</li>
+      </ul>
+    </div>
+  </div>
+</div>

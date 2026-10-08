@@ -1,0 +1,63 @@
+<div class="qr-page">
+
+  <div class="qr-card">
+      <span class="logo__icon_qrpage"></span>
+
+    <h1 style="margin-top: 1rem; margin-bottom: 0.5rem; color: var(--primary); font-size: 21px; text-align: center;">
+     Exhibition Special
+    </h1>
+
+    <p>
+      Scan to register for your free eye test
+      and membership token.
+    </p>
+
+
+    <div class="registration-qr">
+<div class="registration-qr">
+  <canvas id="registrationQrCanvas"></canvas>
+</div>
+
+<!-- <div class="qr-actions">
+  <button type="button" (click)="downloadQr()">
+    Download QR
+  </button>
+
+  <button type="button" (click)="printQr()">
+    Print QR
+  </button>
+</div> -->
+
+    </div>
+
+
+    <h2>
+      Scan & Register
+    </h2>
+
+    <p class="url">
+      {{ registrationUrl }}
+    </p>
+
+
+    <div class="buttons">
+
+      <button
+        type="button"
+        (click)="downloadQr()"
+      >
+        Download QR
+      </button>
+
+      <button
+        type="button"
+        (click)="printQr()"
+      >
+        Print QR
+      </button>
+
+    </div>
+
+  </div>
+
+</div>

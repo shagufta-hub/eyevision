@@ -1,0 +1,22 @@
+<div>
+    <table >
+        <thead>
+        <tr >
+            <th>Product Name</th>
+            <th>Product Price</th>
+            <th>Product Status</th>
+            <th>Action</th>
+
+        </tr>
+        </thead>
+        <tbody>
+            <tr  *ngFor="let data of products">
+                <th>{{data.title}}</th>
+                <th>{{data.description}}</th>
+                <th>{{data.status}}</th>
+                <th><button style="background-color: green;" (click)="Publishproduct(data.id)">Publish</button></th>
+
+            </tr>
+        </tbody>
+    </table>
+</div>

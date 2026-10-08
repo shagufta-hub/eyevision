@@ -1,0 +1,58 @@
+<div class="tracking-container">
+
+    <div class="header">
+        <h2>Track Your Order</h2>
+        <p>Order ID: <strong>{{ Orderdetails.orderId }}</strong></p>
+    </div>
+
+    <div class="card">
+        <div class="product-info">
+            <h3>{{ Orderdetails.productName }}</h3>
+
+            <div class="details">
+                <p>
+                    <strong>Tracking Number:</strong>
+                    {{ Orderdetails.trackingNumber }}
+                </p>
+
+                <p>
+                    <strong>Status:</strong>
+                    <span class="status">
+                        {{ Orderdetails.status }}
+                    </span>
+                </p>
+
+                <p>
+                    <strong>Estimated Delivery:</strong>
+                    {{ Orderdetails.estimatedDelivery }}
+                </p>
+
+                <p>
+                    <strong>Shipping Address:</strong>
+                    {{ Orderdetails.shippingAddress }}
+                </p>
+            </div>
+        </div>
+
+        <div class="timeline">
+
+            <div
+                class="step"
+                *ngFor="let step of steps"
+                [class.completed]="step.completed">
+
+                <div class="circle">
+                    <span *ngIf="step.completed">✓</span>
+                </div>
+
+                <div class="label">
+                    {{ step.name }}
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

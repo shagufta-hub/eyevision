@@ -1,0 +1,255 @@
+.checkout-page {
+  padding: 2rem 1.5rem 4rem;
+
+  h1 {
+    font-family: var(--font-display);
+    margin-bottom: 2rem;
+  }
+}
+
+.error-message {
+  background-color: #fee;
+  border: 1px solid #fcc;
+  color: #c33;
+  padding: 1rem;
+  border-radius: var(--radius-sm);
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.checkout-layout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 2rem;
+  align-items: start;
+}
+
+.checkout-form section {
+  margin-bottom: 2rem;
+
+  h2 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  h3 {
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    color: var(--text);
+  }
+
+  label {
+    display: block;
+    margin-bottom: 1rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-muted);
+
+    input {
+      // display: block;
+      width: 100%;
+      margin-top: 0.35rem;
+      padding: 0.65rem 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      font-size: 1rem;
+      font-family: inherit;
+
+      &:focus {
+        outline: none;
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px var(--primary-light);
+      }
+    }
+  }
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+/* Payment Methods Styling */
+.payment-methods {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.payment-option {
+  display: block;
+  position: relative;
+  cursor: pointer;
+
+  input[type="radio"] {
+    display: none;
+
+    &:checked + .payment-label {
+      border-color: var(--primary);
+      background: var(--primary-light);
+      box-shadow: 0 0 0 3px var(--primary-light);
+    }
+  }
+
+  .payment-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem 1rem;
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--surface);
+    transition: all 0.3s ease;
+    text-align: center;
+
+    &:hover {
+      border-color: var(--text-muted);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .payment-icon {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .payment-text {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+  }
+}
+
+/* Payment Details Section */
+.payment-details {
+  background: var(--surface);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  margin-bottom: 1.5rem;
+
+  &.cod-info {
+    background: #f0f9ff;
+    border-color: #b3d9ff;
+  }
+
+  .info-text {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 1rem;
+    font-style: italic;
+  }
+}
+
+.checkout-summary {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  position: sticky;
+  top: 90px;
+
+  h2 {
+    font-size: 1.1rem;
+    margin: 0 0 0.5rem;
+  }
+
+  .item-count {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+  }
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+
+  &--total {
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding-top: 1rem;
+    margin-top: 0.5rem;
+    border-top: 1px solid var(--border);
+  }
+}
+
+.order-success {
+  text-align: center;
+  padding: 4rem 2rem;
+
+  h1 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+  }
+
+  p {
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+  }
+
+  .order-id {
+    font-size: 1rem;
+    color: var(--text);
+    margin: 1rem 0 2rem;
+  }
+}
+
+.empty-checkout {
+  text-align: center;
+  padding: 3rem;
+
+  p {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .payment-methods {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .checkout-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .payment-methods {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+  }
+
+  .payment-option .payment-label {
+    padding: 1rem 0.75rem;
+
+    .payment-icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .payment-text {
+      font-size: 0.75rem;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .payment-methods {
+    grid-template-columns: 1fr;
+  }
+
+  .checkout-summary {
+    position: static;
+    margin-top: 2rem;
+  }
+}

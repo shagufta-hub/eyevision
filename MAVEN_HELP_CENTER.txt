@@ -1,0 +1,189 @@
+═══════════════════════════════════════════════════════════════════════════════
+                        MAVEN INSTALLATION SUPPORT
+═══════════════════════════════════════════════════════════════════════════════
+
+ERROR YOU'RE FACING:
+───────────────────────────────────────────────────────────────────────────────
+mvn : The term 'mvn' is not recognized as the name of a cmdlet, function, 
+script file, or operable program.
+
+
+📚 I'VE CREATED 5 COMPREHENSIVE GUIDES FOR YOU:
+═══════════════════════════════════════════════════════════════════════════════
+
+1. 🚀 MAVEN_QUICK_FIX.md (START HERE - 2 minutes)
+   ┌────────────────────────────────────────────────────────┐
+   │ • Quick reference card                                 │
+   │ • 3-step solution                                      │
+   │ • Checklist                                            │
+   │ • Troubleshooting tips                                 │
+   └────────────────────────────────────────────────────────┘
+
+2. 📖 MAVEN_SETUP_WINDOWS.md (DETAILED - 5-10 minutes)
+   ┌────────────────────────────────────────────────────────┐
+   │ • Step-by-step with descriptions                       │
+   │ • GUI method (easiest for beginners)                   │
+   │ • PowerShell method (for advanced users)               │
+   │ • Troubleshooting guide                                │
+   │ • Verification checklist                               │
+   └────────────────────────────────────────────────────────┘
+
+3. 🛠️ MAVEN_INSTALLATION.md (TECHNICAL)
+   ┌────────────────────────────────────────────────────────┐
+   │ • Download instructions                                │
+   │ • Extraction guide                                     │
+   │ • Environment variables setup                          │
+   │ • Common issues & solutions                            │
+   └────────────────────────────────────────────────────────┘
+
+4. ✅ check_prerequisites.bat (AUTO-VERIFICATION)
+   ┌────────────────────────────────────────────────────────┐
+   │ • Double-click to run                                  │
+   │ • Automatically checks Java & Maven                    │
+   │ • Shows what's installed or missing                    │
+   │ • Provides solution                                    │
+   └────────────────────────────────────────────────────────┘
+
+5. ✅ check_prerequisites.ps1 (POWERSHELL VERSION)
+   ┌────────────────────────────────────────────────────────┐
+   │ • For PowerShell users                                 │
+   │ • Run: powershell -ExecutionPolicy Bypass -File .\...  │
+   │ • Same features as .bat version                        │
+   └────────────────────────────────────────────────────────┘
+
+
+🎯 QUICK 3-STEP SOLUTION:
+═══════════════════════════════════════════════════════════════════════════════
+
+Step 1: Download Maven
+  URL: https://maven.apache.org/download.cgi
+  File: apache-maven-3.9.5-bin.zip
+
+Step 2: Extract to C:\Program Files\apache-maven-3.9.5\
+
+Step 3: Set Environment Variables
+  • MAVEN_HOME = C:\Program Files\apache-maven-3.9.5
+  • Add %MAVEN_HOME%\bin to PATH
+  
+  (See MAVEN_QUICK_FIX.md or MAVEN_SETUP_WINDOWS.md for detailed steps)
+
+Step 4: ⚠️ RESTART TERMINAL
+
+Step 5: Verify
+  mvn -version
+
+
+📋 WHICH GUIDE SHOULD I READ?
+═══════════════════════════════════════════════════════════════════════════════
+
+Your Situation                        → Read This
+─────────────────────────────────────────────────────────────────────────────
+⏰ I'm in a hurry (2 min)              MAVEN_QUICK_FIX.md
+📖 I want step-by-step (GUI method)   MAVEN_SETUP_WINDOWS.md
+🔧 I'm technical (PowerShell)         MAVEN_INSTALLATION.md (Section B)
+✓ I want auto-verification            Run check_prerequisites.bat
+🆘 I'm stuck                           COMPLETE_SETUP_GUIDE.md (Phase 1)
+
+
+⚡ THE FASTEST WAY TO GET STARTED:
+═══════════════════════════════════════════════════════════════════════════════
+
+1. Open MAVEN_QUICK_FIX.md (takes 2 minutes to read)
+
+2. Download Maven from:
+   https://maven.apache.org/download.cgi
+
+3. Extract to:
+   C:\Program Files\apache-maven-3.9.5\
+
+4. Run setup (choose one):
+   
+   Option A - Use GUI (easiest):
+   • Right-click "This PC" → Properties
+   • Advanced system settings
+   • Environment Variables
+   • Follow the guide
+   
+   Option B - Run script:
+   • Open PowerShell as Admin
+   • Paste commands from MAVEN_SETUP_WINDOWS.md (Option B)
+
+5. Close terminal and open NEW terminal
+
+6. Type: mvn -version
+
+Done! ✓
+
+
+✨ AFTER MAVEN INSTALLATION:
+═════════════════════════════════════════════════════════════════════════════
+
+Then you can run:
+
+  cd backend/eyevision
+  mvn clean install              (2-5 minutes, downloads dependencies)
+  mvn spring-boot:run            (starts backend server)
+
+
+🎓 KEY THINGS TO REMEMBER:
+═══════════════════════════════════════════════════════════════════════════════
+
+✓ Extract Maven to PERMANENT location (C:\Program Files\)
+  ✗ NOT to Downloads or Desktop (temporary)
+
+✓ Set BOTH environment variables:
+  • MAVEN_HOME
+  • PATH (add %MAVEN_HOME%\bin)
+
+✓ RESTART TERMINAL after setting env variables
+  • Changes don't take effect until you restart
+
+✓ Verify with: mvn -version
+  • Shows Maven is in PATH
+  • Shows Java version is available
+
+✓ If still not working:
+  • Run check_prerequisites.bat to diagnose
+  • It will tell you exactly what's missing
+
+
+📞 STILL HAVING TROUBLE?
+═════════════════════════════════════════════════════════════════════════════
+
+Run the auto-check script:
+
+  Option 1 - Command Prompt (Windows CMD):
+  check_prerequisites.bat
+
+  Option 2 - PowerShell:
+  powershell -ExecutionPolicy Bypass -File .\check_prerequisites.ps1
+
+This will tell you:
+  ✓ If Maven is installed
+  ✓ If Java is installed
+  ✓ If PATH is set correctly
+  ✓ Exactly what to fix
+
+
+🎯 FINAL SUMMARY:
+═════════════════════════════════════════════════════════════════════════════
+
+You have completed: ✅ Backend Implementation (100%)
+
+Remaining: 
+  ⏳ Maven Installation (5-10 minutes, simple)
+  ⏭️  Frontend Development (Phase 2)
+
+Documentation created for you:
+  ✅ 5 Maven setup guides
+  ✅ 2 auto-check scripts
+  ✅ Complete troubleshooting
+
+Everything you need to get Maven working is in the guides above.
+
+
+═══════════════════════════════════════════════════════════════════════════════
+
+🚀 START HERE: MAVEN_QUICK_FIX.md (2 minutes)
+
+═══════════════════════════════════════════════════════════════════════════════

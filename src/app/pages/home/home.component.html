@@ -1,0 +1,82 @@
+<section class="hero">
+  <div class="container hero__inner">
+    <div class="hero__content">
+      <p class="hero__eyebrow">See the world clearly</p>
+      <h1>Stylish eyewear for <em>everyone</em></h1>
+      <p class="hero__desc">
+        Shop spectacles, goggles, and contact lenses for women, men, and kids.
+        Free shipping on orders over {{ freeShippingMin | inr }}.
+      </p>
+      <div class="hero__actions">
+        <a routerLink="/shop" class="btn btn--primary btn--lg">Shop Now</a>
+        <a routerLink="/shop" [queryParams]="{ category: 'spectacles' }" class="btn btn--outline btn--lg">Spectacles</a>
+      </div>
+    </div>
+    <div class="hero__visual">
+      <img
+        src="https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=700&h=800&fit=crop"
+        alt="Stylish eyewear collection"
+      />
+    </div>
+  </div>
+</section>
+
+<section class="categories section">
+  <div class="container">
+    <h2 class="section__title">Shop by Category</h2>
+    <div class="categories__grid">
+      <a
+        *ngFor="let cat of categories"
+        class="category-card"
+        [routerLink]="['/shop']"
+        [queryParams]="{ category: cat }"
+      >
+        <span class="category-card__icon">{{ cat === 'spectacles' ? '👓' : cat === 'goggles' ? '🥽' : '💧' }}</span>
+        <h3>{{ categoryLabels[cat] }}</h3>
+        <span class="category-card__cta">Browse →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="audience section section--alt">
+  <div class="container">
+    <h2 class="section__title">Shop for</h2>
+    <div class="audience__grid">
+      <a
+        *ngFor="let aud of audiences"
+        class="audience-card"
+        [routerLink]="['/shop']"
+        [queryParams]="{ audience: aud }"
+        [class.audience-card--women]="aud === 'women'"
+        [class.audience-card--men]="aud === 'men'"
+        [class.audience-card--kids]="aud === 'kids'"
+      >
+        <h3>{{ audienceLabels[aud] }}</h3>
+        <span>Explore collection →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="featured section">
+  <div class="container">
+    <div class="section__header">
+      <h2 class="section__title">Featured Products</h2>
+      <a routerLink="/shop" class="link-arrow">View all</a>
+    </div>
+    <div class="products-grid">
+      <app-product-card *ngFor="let product of featured" [product]="product" />
+    </div>
+  </div>
+</section>
+
+<section class="promo section">
+  <div class="container promo__inner">
+    <div>
+      <h2>Free eye exam with purchase</h2>
+      <p>Book a complimentary eye exam at any EyeVision store when you spend {{ eyeExamMin | inr }} or more.</p>
+    </div>
+    <a routerLink="/shop" class="btn btn--accent btn--lg">Start Shopping</a>
+  </div>
+</section>

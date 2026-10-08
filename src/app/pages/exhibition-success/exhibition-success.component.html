@@ -1,0 +1,104 @@
+<div class="success-page">
+
+  <div class="success-card">
+
+    <!-- Success -->
+
+    <div class="success-icon">
+      ✓
+    </div>
+
+    <h1>
+      Registration Successful!
+    </h1>
+
+    <p class="welcome">
+      Welcome to EyeVision,
+      <strong>
+        {{ registration?.name }}
+      </strong>
+    </p>
+
+
+    <!-- Token -->
+
+    <div class="token-box">
+
+      <p class="token-label">
+        Your Membership Token
+      </p>
+
+      <div class="token">
+        {{ registration?.membershipToken }}
+      </div>
+
+      <p class="token-help">
+        Keep this token safe for your
+        EyeVision membership benefits.
+      </p>
+
+    </div>
+
+
+    <!-- QR -->
+
+    <div class="qr-section">
+
+      <p class="qr-title">
+        Your Membership QR
+      </p>
+
+      <p class="qr-description">
+        Show this QR code at the Eye Test
+        counter.
+      </p>
+
+      <div class="qr-container">
+
+    <div class="membership-qr"> <canvas id="membershipQrCanvas"> </canvas> </div> <div class="membership-token"> <strong> {{ registration?.membershipToken }} </strong> </div>
+     <!-- <button type="button" (click)="printMembership()"> Print Membership </button> <button type="button" (click)="goToRegistration()"> Register Another Visitor </button> -->
+
+      </div>
+
+    </div>
+
+
+    <!-- Benefits -->
+
+    <div class="benefits">
+
+      <div class="benefit">
+        <span>✓</span>
+        Free Eye Test
+      </div>
+
+      <div class="benefit">
+        <span>✓</span>
+        Free Spectacles*
+      </div>
+
+      <div class="benefit">
+        <span>✓</span>
+        Exclusive Membership Discount
+      </div>
+
+    </div>
+
+
+    <button
+      class="print-button"
+      type="button"
+      (click)="printMembership()"
+    >
+      Print / Save Membership
+    </button>
+
+
+    <p class="note">
+      Please show this QR code to the
+      EyeVision exhibition staff.
+    </p>
+
+  </div>
+
+</div>

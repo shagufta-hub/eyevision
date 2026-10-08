@@ -1,0 +1,52 @@
+<div class="cart-page container">
+  <h1>Shopping Cart</h1>
+
+  <div class="cart-layout" *ngIf="cart.cartItems().length; else empty">
+    <section class="cart-items">
+      <article class="cart-item" *ngFor="let item of cart.cartItems()">
+        <a [routerLink]="['/product', item.product.id]" class="cart-item__image">
+          <img [src]="cart.itemImage(item)" [alt]="item.product.name" />
+        </a>
+        <div class="cart-item__details">
+          <a [routerLink]="['/product', item.product.id]" class="cart-item__name">{{ item.product.name }}</a>
+          <p class="cart-item__meta">{{ item.product.brand }}</p>
+          <p class="cart-item__variant">Color: <strong>{{ item.selectedColor }}</strong></p>
+          <p class="cart-item__price">{{ item.product.price | inr }} each</p>
+        </div>
+        <div class="cart-item__qty">
+          <button type="button" (click)="cart.updateQuantity(cart.lineId(item), item.quantity - 1)">−</button>
+          <span>{{ item.quantity }}</span>
+          <button type="button" (click)="cart.updateQuantity(cart.lineId(item), item.quantity + 1)">+</button>
+        </div>
+        <p class="cart-item__total">{{ item.product.price * item.quantity | inr }}</p>
+        <button type="button" class="cart-item__remove" (click)="cart.removeItem(cart.lineId(item))" aria-label="Remove">×</button>
+      </article>
+    </section>
+
+    <aside class="cart-summary">
+      <h2>Order Summary</h2>
+      <div class="summary-row">
+        <span>Subtotal</span>
+        <span>{{ cart.subtotal() | inr }}</span>
+      </div>
+      <div class="summary-row">
+        <span>Shipping</span>
+        <span>{{ cart.shipping() === 0 ? 'Free' : (cart.shipping() | inr) }}</span>
+      </div>
+      <p class="shipping-note" *ngIf="cart.shipping() > 0">Free shipping on orders over {{ freeShippingMin | inr }}</p>
+      <div class="summary-row summary-row--total">
+        <span>Total</span>
+        <span>{{ cart.total() | inr }}</span>
+      </div>
+      <a routerLink="/checkout" class="btn btn--primary btn--lg btn--block">Proceed to Checkout</a>
+      <a routerLink="/shop" class="link-continue">Continue Shopping</a>
+    </aside>
+  </div>
+
+  <ng-template #empty>
+    <div class="empty-cart">
+      <p>Your cart is empty.</p>
+      <a routerLink="/shop" class="btn btn--primary">Browse Products</a>
+    </div>
+  </ng-template>
+</div>
